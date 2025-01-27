@@ -5,11 +5,15 @@ Dada uma árvore rubro-negra que armazena palavras em português e, dentro de ca
 int exibir_palavras_port(ArvRB *raiz, int unidade){
 
     if(raiz != NULL){
-        if(raiz->unidade == unidade){
-             if(raiz->palavraportugues->palavraingles != NULL)
-                printf("%s", raiz->palavraportugues);
+        for(int i=0; i<raiz->palavrasportugues->num_unidades; i++){
+            if(raiz->palavrasportugues->unidades[i] == unidade)
+                printf("%s", raiz->palavrasportugues->palavra);
+            }
         }
     }
+
+    exibir_palavras_port(raiz->esquerda, unidade);
+    exibir_palavras_port(raiz->direita, unidade);
 
 }
 
